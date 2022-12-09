@@ -1,0 +1,139 @@
+body * {
+	font-family: 'Inter', 'DM Sans', sans-serif;
+	font-weight: 400;
+	/* background: transparent; */
+}
+/*---------------> Aeroplane CSS START <---------------*/
+.light {
+	width: 10px;
+	height: 10px;
+	background: red;
+	border-radius: 50%;
+	bottom: 295px;
+	position: absolute;
+	z-index: 10;
+	left: 20px;
+	animation: light 800ms ease-in-out 0s infinite alternate;
+}
+.cloud {
+	position: absolute;
+	/* transform: rotate(90deg); */
+	/* top: 0px;
+	right: -500px; */
+  
+	opacity: 1;
+	/* animation: cloud 10s linear 0s infinite; */
+	z-index: 99;
+}
+@keyframes light {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes cloud {
+	from {
+		top: -10px;
+		left: auto;
+		right: auto;
+	}
+	to {
+		top: 102%;
+	}
+}
+
+/*---------------> Aeroplane CSS END <-------------- */
+
+.helicopter {
+  display: block;
+  float: right;
+  width: max-content;
+  height: 400px;
+}
+.medium {
+display: inline;
+  width: fit-content;
+  height: fit-content;
+  /* z-index: 99; */
+  
+}
+.crashed {
+  position: absolute;
+  animation: crashed 10s linear 0s infinite;
+  transform: rotate(90deg);
+}
+@keyframes crashed {
+	from {
+		top: 0px;
+    left:auto
+		
+	}
+	to {
+		top: 100%;
+    left:auto
+	}
+
+}
+
+
+
+
+
+
+.messagecontainer {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+	background-color: #eee;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+input {
+	border: none;
+	padding: 5px 10px;
+}
+
+.row,
+.hrow {
+	display: grid;
+	grid-template-columns: auto;
+	row-gap: 10px;
+}
+
+.cipher {
+	font-weight: 600;
+	color: #000056;
+}
+
+.plain {
+	color: #005600;
+}
+
+.hrow * {
+	font-weight: 100;
+}
+
+.verify {
+	border: none;
+	border-radius: 5px;
+	background-color: #1040ae;
+	cursor: pointer;
+	color: white;
+	margin-top: 15px;
+	padding: 5px 10px;
+}
+
+.verify:hover {
+	background-color: #08205e;
+}
+
+.correct {
+	border: 5px solid #008800;
+}
+
+.wrong {
+	border: 5px solid #880000;
+}
