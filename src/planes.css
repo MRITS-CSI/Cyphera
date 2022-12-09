@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;500;700;800&family=Major+Mono+Display&display=swap');
+.plane {
+    /* background-image: url("./Assets/plane.png");
+    background-size: cover;
+    width: 200px;
+    height: 100px; */
+    animation: planeAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 0;
+    transition: all 0.7s linear;
+    /* display: inline block; */
+}
+
+.odd {
+    padding-top: 2vh;
+}
+
+.planecontainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    transform: scaleX(-1);
+}
+
+body {
+    --plane-float-height: 1vh;
+}
+
+@keyframes planeAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1.5vh);
+    }
+    100% {
+        transform: translateY(-0);
+    }
+    /* 100% {
+        transform: translateY(0);
+    } */
+}
+
+.heading {
+    display: inline-block;
+    width: 200px;
+}
+
+body {
+    background-color: aqua;
+    margin: 0;
+    font-family: 'Inconsolata';
+    height: 100%;
+    ;
+}
+
+.topbar {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: #001521;
+    color: white;
+    font-family: 'Major Mono Display';
+    padding: 2vh 5vw;
+    flex: 0 1 auto;
+}
+
+.Container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: auto auto;
+    z-index: 99;
+}
+
+.App {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
