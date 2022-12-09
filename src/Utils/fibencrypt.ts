@@ -40,11 +40,11 @@ export const fibEncrypt = (s: string) => {
 	let ns = s.toLowerCase();
 	let out = '';
 
-	for (let i = 0; i < ns.length; ++i)
+	for (let i = 0, j = 0; i < ns.length; ++i)
 		out +=
 			ns.charCodeAt(i) < 'z'.charCodeAt(0) &&
 			ns.charCodeAt(i) > 'a'.charCodeAt(0)
-				? chars[getIndex(fibvec[i] + chars.indexOf(ns[i]))]
+				? chars[getIndex(fibvec[j++] + chars.indexOf(ns[i]))]
 				: ns[i];
 
 	return out;
