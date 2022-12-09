@@ -29,6 +29,7 @@ const Demo = () => {
 	});
 	return (
 		<div className="messagecontainer" id="msgcont">
+			<h1>Deciphered messages</h1>
 			{demoData}
 		</div>
 	);
