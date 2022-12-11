@@ -20,6 +20,7 @@ const Cyphera = (props: myprops) => {
 			isLogged: true,
 		});
 		if (data.status === 'success') {
+			window.localStorage.removeItem('token');
 			navigate('/');
 			alert('Your score has been submitted successfully');
 		} else {

@@ -29,7 +29,9 @@ const Container = (props: myprops) => {
 			}
 		);
 		if (data.status === 'success') {
+			window.localStorage.removeItem('token');
 			navigate('/');
+
 			alert('Your score has been submitted successfully');
 		} else {
 			alert('ERROR !!!, please contact the team immediately !!!');
