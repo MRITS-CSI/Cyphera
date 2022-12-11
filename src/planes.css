@@ -42,6 +42,21 @@ body {
     } */
 }
 
+@keyframes planeCrashing {
+    0% {
+        transform: translateY(0);
+    }
+    15% {
+        transform: rotateX(-30deg)
+    }
+    50% {
+        transform: translateY(3vh);
+    }
+    100% {
+        transform: translateY(10vh);
+    }
+}
+
 .heading {
     display: inline-block;
     width: 200px;
