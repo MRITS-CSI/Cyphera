@@ -1,25 +1,45 @@
 import React from 'react';
+import { genScore } from '../Utils/generateScore';
+import API from '../API';
 import { useNavigate } from 'react-router-dom';
-
+import { mapStateToPropsInt, respQuestions, userData } from '../Interface';
+import { connect } from 'react-redux';
 import Countdown from 'react-countdown';
 
-const Cyphera = () => {
+interface myprops {
+	questions: respQuestions;
+	teamNo: userData;
+}
+const Cyphera = (props: myprops) => {
 	let navigate = useNavigate();
 	const onCountDown = async () => {
-		/**
-		 * Score API Call
-		 */
-		navigate('/');
+		let score = genScore(props.questions);
+
+		let { data } = await API.patch(`/user/${props.teamNo.teamNo}`, {
+			round1: score,
+			isLogged: true,
+		});
+		if (data.status === 'success') {
+			navigate('/');
+			alert('Your score has been submitted successfully');
+		} else {
+			alert('ERROR !!!, please contact the team immediately !!!');
+		}
 	};
 
 	return (
 		<div className="cypheraheading">
 			<h1>cyphera_</h1>
 			<h2>
-				<Countdown date={Date.now() + 60000} onComplete={onCountDown} />
+				<Countdown date={Date.now() + 600000} onComplete={onCountDown} />
 			</h2>
 		</div>
 	);
 };
-
-export default Cyphera;
+const mapStateToProps = (state: mapStateToPropsInt) => {
+	return {
+		questions: state.questions.questions,
+		teamNo: state.teamNo,
+	};
+};
+export default connect(mapStateToProps)(Cyphera);

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import axios from 'axios';
+import API from '../API';
 import '../CSS/Login.css';
 import { teamNumber } from '../Actions';
 import { mapStateToPropsInt, userData } from '../Interface';
-import { Link, Form, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 interface myProps {
 	teamNumber: ActionCreatorWithPayload<userData, 'TEAM'>;
 	teamNo: string;
@@ -16,20 +15,19 @@ const Login = (props: myProps) => {
 	const [pass, setPass] = useState('');
 	const navigate = useNavigate();
 	const loginHandler = async () => {
-		let loginData = await axios
-			.post('http://localhost:8000/api/v1/user/login', {
-				teamNo: uname,
-				password: pass,
-			})
-			.then((res) => res.data);
+		let loginData = await API.post('/user/login', {
+			teamNo: uname,
+			password: pass,
+		}).then((res) => res.data);
 
-		if (loginData && loginData.status === 'success') {
+		if (loginData && loginData.status === 'success' && !loginData.isLogged) {
 			console.log(loginData);
 			window.localStorage.setItem('token', loginData.token);
 			props.teamNumber({ teamNo: uname });
 			navigate('/game');
 		} else {
-			return <Link to="/">Wrong credentials</Link>;
+			alert('Wrong credentials or Already submitted the game');
+			navigate('/');
 		}
 	};
 	return (
@@ -64,7 +62,7 @@ const Login = (props: myProps) => {
 const mapStateToProps = (state: mapStateToPropsInt) => {
 	console.log(state);
 	return {
-		teamNo: state.teamNo,
+		teamNo: state.teamNo.teamNo,
 	};
 };
 export default connect(mapStateToProps, { teamNumber })(Login);

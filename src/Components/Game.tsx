@@ -4,7 +4,6 @@ import Topbar from './Topbar';
 import Container from './Container';
 
 const Game = () => {
-	console.log('Im here');
 	if (window.localStorage.getItem('token')) {
 		return (
 			<div className="App">
