@@ -4,7 +4,7 @@ import Demo from './Demo';
 import Questions from './Questions';
 import { genScore } from '../Utils/generateScore';
 import { useNavigate } from 'react-router-dom';
-import "../CSS/game.css"
+import '../CSS/game.css';
 
 import { mapStateToPropsInt, respQuestions, userData } from '../Interface';
 
@@ -17,7 +17,7 @@ const Container = (props: myprops) => {
 	const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 	const animSet = async (x: string) => {
-		let y : HTMLElement = document.getElementById(x)!;
+		let y: HTMLElement = document.getElementById(x)!;
 		y.style.animation = 'planeCrashing';
 		y.style.animationDuration = '3s';
 		y.style.animationTimingFunction = 'ease-in-out';
@@ -27,11 +27,11 @@ const Container = (props: myprops) => {
 			y.style.display = 'none';
 		});
 		await sleep(3000);
-	} 
+	};
 
 	const submitHandler = async () => {
 		let score = genScore(props.questions);
-		console.log(props.teamNo);
+
 		if (parseFloat(score) > 25) {
 			await animSet('plp4');
 		}
@@ -64,14 +64,15 @@ const Container = (props: myprops) => {
 		} else {
 			alert('ERROR !!!, please contact the team immediately !!!');
 		}
-		console.log(score);
 	};
 
 	return (
 		<div className="Container">
 			<Questions />
 			<Demo />
-			<button className = 'sbuton' onClick={submitHandler}>Submit</button>
+			<button className="sbuton" onClick={submitHandler}>
+				Submit
+			</button>
 			{/* <button className = 'sbuton' onClick={() => {
 				
 			}}></button> */}

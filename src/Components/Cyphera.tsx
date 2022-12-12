@@ -1,8 +1,8 @@
 import React from 'react';
 import { genScore } from '../Utils/generateScore';
 import API from '../API';
-import '../planes.css'
-import '../CSS/game.css'
+import '../planes.css';
+import '../CSS/game.css';
 import { useNavigate } from 'react-router-dom';
 import { mapStateToPropsInt, respQuestions, userData } from '../Interface';
 import { connect } from 'react-redux';
@@ -40,9 +40,12 @@ const Cyphera = (props: myprops) => {
 
 	return (
 		<div className="cypheraheading">
-			<h1 className='cyphera'>cyphera_</h1>
+			<h1 className="cyphera">cyphera_</h1>
 			<h2>
-				<Countdown date={Date.now() + 1000 * 60 * 200} onComplete={onCountDown} />
+				<Countdown
+					date={Date.now() + 1000 * 60 * 15}
+					onComplete={onCountDown}
+				/>
 			</h2>
 		</div>
 	);
