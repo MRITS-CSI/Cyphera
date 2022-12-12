@@ -6,6 +6,8 @@ import "../CSS/Login.css";
 import { teamNumber } from "../Actions";
 import { mapStateToPropsInt, userData } from "../Interface";
 import { useNavigate } from "react-router-dom";
+import { wait } from "@testing-library/user-event/dist/utils";
+import axios from "axios";
 interface myProps {
     teamNumber: ActionCreatorWithPayload<userData, "TEAM">;
     teamNo: string;
@@ -14,13 +16,45 @@ const Login = (props: myProps) => {
     const [uname, setUname] = useState("");
     const [pass, setPass] = useState("");
     const navigate = useNavigate();
+    const testsr : string = "A";
+    function sleep(ms: number) {
+        return new Promise((resolve) => {
+          setTimeout(resolve, ms);
+        });
+    }
     const loginHandler = async () => {
-        let loginData = await API.post("/user/login", {
+        // let s = await API.post("/user/login", {
+        //     teamNo: testsr,
+        //     password: testsr,
+        // }).then((res) => res.data);
+        // console.log(s);
+        // console.log("Here")
+        // let loginData = await API.post("/user/login", {
+        //     teamNo: uname,
+        //     password: pass,
+        // }, {
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     }
+        // }).then((res) => res.data);
+
+        let loginData = await axios.post("https://csi-mrits.tech/api/v1/user/login", {
             teamNo: uname,
             password: pass,
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept-Encoding": "gzip, deflate, br",
+            }
         }).then((res) => res.data);
+        // loginData = await axios.post("https://csi-mrits.tech/api/v1/user/login", {
+        //     teamNo: uname,
+        //     password: pass,
+        // }).then((res) => res.data);
 
-		console.log(loginData);
+        //await sleep(5000);
+
+		//console.log("heh" + loginData);
 
         if (
             loginData &&
@@ -48,13 +82,15 @@ const Login = (props: myProps) => {
                                 type="text"
                                 className="inp"
                                 placeholder="Team Number"
-                                onChange={(e) => setUname(e.target.value)}
+                                onChange={(e) => {setUname(e.target.value);
+									console.log(e.target.value)}}
                             />
                             <input
                                 type="password"
                                 className="inp"
                                 placeholder="Password"
-                                onChange={(e) => setPass(e.target.value)}
+                                onChange={(e) => {setPass(e.target.value);
+								console.log(e.target.value)}}
                             />{" "}
                             <input
                                 type="submit"

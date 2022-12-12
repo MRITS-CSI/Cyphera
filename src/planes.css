@@ -47,13 +47,14 @@ body {
         transform: translateY(0);
     }
     15% {
-        transform: rotateX(-30deg)
+        transform: rotateZ(30deg) translateY(0);
     }
     50% {
-        transform: translateY(3vh);
+        transform: translate(3vh 5vh) rotateZ(30deg);
     }
     100% {
-        transform: translateY(10vh);
+        transform: translateX(15vh) translateY(20vh) rotateZ(30deg);
+        display: none;
     }
 }
 
@@ -91,4 +92,19 @@ body {
     display: flex;
     flex-flow: column;
     height: 100vh;
+}
+
+.cypheraheading {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: left;
+    align-items: center;
+}
+
+.cyphera {
+    font-size: 3rem;
+}
+
+.cypheraheading * {
+    font-family: 'Major Mono Display';
 }

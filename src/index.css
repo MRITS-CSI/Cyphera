@@ -1,153 +1,156 @@
 body .messagecontainer * {
-	font-family: 'Inconsolata', 'DM Sans', sans-serif;
-	font-size: 18px;
-	/* font-weight: 400; */
-	/* background: transparent; */
+    font-family: 'Inconsolata', 'DM Sans', sans-serif;
+    font-size: 18px;
+    /* font-weight: 400; */
+    /* background: transparent; */
 }
+
 
 /*---------------> Aeroplane CSS START <---------------*/
 
 .light {
-	width: 10px;
-	height: 10px;
-	background: red;
-	border-radius: 50%;
-	bottom: 295px;
-	position: absolute;
-	z-index: 10;
-	left: 20px;
-	animation: light 800ms ease-in-out 0s infinite alternate;
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    bottom: 295px;
+    position: absolute;
+    z-index: 10;
+    left: 20px;
+    animation: light 800ms ease-in-out 0s infinite alternate;
 }
 
 .cloud {
-	position: absolute;
-	/* transform: rotate(90deg); */
-	/* top: 0px;
+    position: absolute;
+    /* transform: rotate(90deg); */
+    /* top: 0px;
 	right: -500px; */
-	opacity: 1;
-	/* animation: cloud 10s linear 0s infinite; */
-	z-index: 99;
+    opacity: 1;
+    /* animation: cloud 10s linear 0s infinite; */
+    z-index: 99;
 }
 
 @keyframes light {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes cloud {
-	from {
-		top: -10px;
-		left: auto;
-		right: auto;
-	}
-	to {
-		top: 102%;
-	}
+    from {
+        top: -10px;
+        left: auto;
+        right: auto;
+    }
+    to {
+        top: 102%;
+    }
 }
+
 
 /*---------------> Aeroplane CSS END <-------------- */
 
 .helicopter {
-	display: block;
-	float: right;
-	width: max-content;
-	height: 400px;
+    display: block;
+    float: right;
+    width: max-content;
+    height: 400px;
 }
 
 .medium {
-	display: inline;
-	width: fit-content;
-	height: fit-content;
-	/* z-index: 99; */
+    display: inline;
+    width: fit-content;
+    height: fit-content;
+    /* z-index: 99; */
 }
 
 .crashed {
-	position: absolute;
-	animation: crashed 10s linear 0s infinite;
-	transform: rotate(90deg);
+    position: absolute;
+    animation: crashed 10s linear 0s infinite;
+    transform: rotate(90deg);
 }
 
 @keyframes crashed {
-	from {
-		top: 0px;
-		left: auto;
-	}
-	to {
-		top: 100%;
-		left: auto;
-	}
+    from {
+        top: 0px;
+        left: auto;
+    }
+    to {
+        top: 100%;
+        left: auto;
+    }
 }
 
 .messagecontainer {
-	display: flex;
-	flex-direction: column;
-	row-gap: 20px;
-	background-color: #000e23;
-	padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: #000e23;
+    padding: 5vh 5vw;
 }
 
 .messagecontainer h1 {
-	font-size: 40px;
-	color: white;
-	margin-top: 0;
+    font-size: 40px;
+    color: white;
+    margin-top: 0;
 }
 
 input {
-	border: none;
-	border-bottom: 2px solid white;
-	background-color: inherit;
-	padding: 5px 10px;
-	color: #aaa;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: inherit;
+    padding: 5px 10px;
+    color: #aaa;
 }
 
 input:focus {
-	border: none;
+    border-bottom: 2px solid blue;
 }
 
 .row,
 .hrow {
-	display: grid;
-	grid-template-columns: auto;
-	row-gap: 10px;
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 10px;
 }
 
 .cipher {
-	font-weight: 600;
-	color: #eee;
+    font-weight: 600;
+    color: #eee;
 }
 
 .plain {
-	color: #aaa;
+    color: #aaa;
 }
 
 .hrow * {
-	font-weight: 100;
+    font-weight: 100;
 }
 
 .verify {
-	border: none;
-	border-radius: 5px;
-	background-color: #1040ae;
-	cursor: pointer;
-	color: white;
-	margin-top: 15px;
-	padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1040ae;
+    cursor: pointer;
+    color: white;
+    margin-top: 15px;
+    padding: 5px 10px;
 }
 
 .verify:hover {
-	background-color: #08205e;
+    background-color: #08205e;
 }
 
 .correct {
-	border-bottom: 2px solid #008800;
+    border-bottom: 2px solid #008800;
 }
 
 .wrong {
-	border-bottom: 2px solid #880000;
+    border-bottom: 2px solid #880000;
 }
+
 
 /* -------------> Login form <------------------- */

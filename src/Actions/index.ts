@@ -19,7 +19,7 @@ import { userData } from '../Interface';
 export const questionData = createAsyncThunk('QUES', () => {
 	let data = API.get('/question/', {
 		headers: {
-			authorization: 'Bearer ' + window.localStorage.getItem('token'),
+			authorization: 'Bearer ' + "window.localStorage.getItem('token')",
 		},
 	})
 

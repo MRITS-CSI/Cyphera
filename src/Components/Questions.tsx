@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import "../CSS/game.css";
+
 import { questionData } from '../Actions';
 import { mapStateToPropsInt, respQuestions } from '../Interface';
 
@@ -91,7 +93,7 @@ const Questions = (props: questionProps) => {
 	// });
 	let cipherQues = props.questions.cipher.map((sentence, i) => {
 		return (
-			<div className="row" id={`row${i}`}>
+			<div className="row" id={`row${i}`} key={i}>
 				<div className="cipher" id={`q${i}`}>
 					{sentence.question}
 				</div>
@@ -128,7 +130,7 @@ const Questions = (props: questionProps) => {
 			<div className="messagecontainer" id="qcont">
 				{cipherQues}
 				<br />
-				<h1>Advanced Level 👇</h1>
+				<h1 className='topmargin'>Advanced Encryption</h1>
 				{fiboQues}
 			</div>
 		</React.Fragment>
