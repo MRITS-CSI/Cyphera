@@ -15,10 +15,18 @@ const Cyphera = (props: myprops) => {
 	const onCountDown = async () => {
 		let score = genScore(props.questions);
 
-		let { data } = await API.patch(`/user/${props.teamNo.teamNo}`, {
-			round1: score,
-			isLogged: true,
-		});
+		let { data } = await API.patch(
+			`/user/${props.teamNo.teamNo}`,
+			{
+				round1: score,
+				isLogged: true,
+			},
+			{
+				headers: {
+					authorization: 'Bearer ' + window.localStorage.getItem('token'),
+				},
+			}
+		);
 		if (data.status === 'success') {
 			window.localStorage.removeItem('token');
 			navigate('/');
