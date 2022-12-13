@@ -40,10 +40,10 @@ const Cyphera = (props: myprops) => {
 
 	return (
 		<div className="cypheraheading">
-			<h1 className="cyphera">cyphera_</h1>
+			<h1 className="cyphera">CIPHERER_</h1>
 			<h2>
 				<Countdown
-					date={Date.now() + 1000 * 60 * 15}
+					date={Date.now() + 1000 * 60 * 20}
 					onComplete={onCountDown}
 				/>
 			</h2>
