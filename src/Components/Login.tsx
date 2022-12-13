@@ -74,8 +74,7 @@ const Login = (props: myProps) => {
 
 						<div>
 							<p className="desc">
-								Enter your team number and your password (your password will
-								have been mailed to your team leader) and wait until you are
+								Enter your team number and your password, and wait until you are
 								told to login.
 							</p>
 						</div>
