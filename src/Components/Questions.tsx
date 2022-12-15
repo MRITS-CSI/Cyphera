@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import "../CSS/game.css";
+import '../CSS/game.css';
 
 import { questionData } from '../Actions';
 import { mapStateToPropsInt, respQuestions } from '../Interface';
@@ -62,35 +62,8 @@ const Questions = (props: questionProps) => {
 				document.getElementById(`b${index}`)?.classList.add('wrong');
 			}
 		}
-
-		// let x = document.getElementById(`a${index}`);
-		// if (!x) return;
-		// let cval = getRGBValues(x.style.borderColor);
-		// let ouff = inverseLerp(0, parseInt(sentences[index]), dist);
-		// let defr = typeof(defaultColor?.r) == 'undefined' ? 0 : defaultColor?.r;
-		// let louff = Lerp(defr, 255, ouff);
-		// let vals = setRGBValues({'r': clamp(0, 255, defr - louff), 'g': clamp(0, 255, defr + louff), b: clamp(0, 255, defr - louff)})
-		// document.getElementById(`a${index}`)!.style.borderColor = setRGBValues(vals);
-		// console.log(`changed to ${vals}`);
-		// console.log(cval);
 	};
-	// let questions = sentences.map((sentence, i) => {
-	// 	return (
-	// 		<div className="row" id={`row${i}`}>
-	// 			<div className="cipher" id={`q${i}`}>
-	// 				{fibEncrypt(sentence)}
-	// 			</div>
-	// 			<input
-	// 				type="text"
-	// 				name=""
-	// 				className="plaintext"
-	// 				id={`a${i}`}
-	// 				placeholder="Enter deciphered message"
-	// 				onChange={inputChangeHandler}
-	// 			/>
-	// 		</div>
-	// 	);
-	// });
+
 	let cipherQues = props.questions.cipher.map((sentence, i) => {
 		return (
 			<div className="row" id={`row${i}`} key={i}>
@@ -110,7 +83,7 @@ const Questions = (props: questionProps) => {
 	});
 	let fiboQues = props.questions.fibonacci.map((sentence, i) => {
 		return (
-			<div className="row" id={`row${i}`}>
+			<div className="row" id={`row${i}`} key={i}>
 				<div className="cipher" id={`q${i}`}>
 					{sentence.question}
 				</div>
@@ -130,14 +103,13 @@ const Questions = (props: questionProps) => {
 			<div className="messagecontainer" id="qcont">
 				{cipherQues}
 				<br />
-				<h1 className='topmargin'>Advanced Encryption</h1>
+				<h1 className="topmargin">Advanced Encryption</h1>
 				{fiboQues}
 			</div>
 		</React.Fragment>
 	);
 };
 const mapStateToProps = (state: mapStateToPropsInt) => {
-	console.log(state.questions);
 	return {
 		questions: state.questions.questions,
 		teamNo: state.teamNo,
