@@ -1,9 +1,9 @@
 # Cyphera
 
 <div>
-    <img src = "https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg">
+    <img src = "https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" width="1rem" height = "1rem">
     React&nbsp;&nbsp;  
-    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg">
+    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" width="1rem" height = "1rem">
     TypeScript
 </div>
 
